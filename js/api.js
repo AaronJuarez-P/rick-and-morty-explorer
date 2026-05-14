@@ -16,7 +16,7 @@ function cargarPersonajes(pagina){
 
             contenedor.innerHTML += `
             
-            <article class="card">
+            <article class="card ${personaje.status}">
 
                 <img src="${personaje.image}" alt="${personaje.name}">
 
