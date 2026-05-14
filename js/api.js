@@ -1,12 +1,18 @@
 const contenedor = document.getElementById("contenedor-personajes");
 
-function cargarPersonajes(pagina){
 
-    fetch(`https://rickandmortyapi.com/api/character?page=${pagina}`)
 
-    .then(response => response.json())
+async function cargarPersonajes(pagina){
 
-    .then(data => {
+    try{
+
+        const response = await fetch(
+            `https://rickandmortyapi.com/api/character?page=${pagina}`
+        );
+
+        const data = await response.json();
+
+
 
         contenedor.innerHTML = "";
 
@@ -38,6 +44,12 @@ function cargarPersonajes(pagina){
 
         actualizarBotones(data);
 
-    });
+    }
+
+    catch(error){
+
+        console.error("Error al cargar personajes:", error);
+
+    }
 
 }
