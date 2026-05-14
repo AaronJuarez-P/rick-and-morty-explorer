@@ -1,24 +1,41 @@
 <!DOCTYPE HTML>
 <html>
+
 <head>
     <title>rick-and-morty-explorer</title>
+
     <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
+
     <header>
-        <h1>Lista de personajes Rick &Morty</h1>
+        <h1>Lista de personajes Rick & Morty</h1>
     </header>
-    
+
     <main>
         <section id="contenedor-personajes"></section>
     </main>
 
     <footer>
-        <button type="button">Anterior</button>
-        <p>Pagina</p>
-        <button type="button">Siguiente</button>
+
+        <button id="anterior" type="button">
+            Anterior
+        </button>
+
+        <p id="pagina">
+            Página 1
+        </p>
+
+        <button id="siguiente" type="button">
+            Siguiente
+        </button>
+
     </footer>
+
     <script src="js/api.js"></script>
+    <script src="js/main.js"></script>
+
 </body>
+
 </html>

@@ -1,33 +1,43 @@
-fetch("https://rickandmortyapi.com/api/character")
+const contenedor = document.getElementById("contenedor-personajes");
 
-.then(response => response.json())
+function cargarPersonajes(pagina){
 
-.then(data => {
+    fetch(`https://rickandmortyapi.com/api/character?page=${pagina}`)
 
-    console.log(data);
+    .then(response => response.json())
 
-    const contenedor = document.getElementById("contenedor-personajes");
+    .then(data => {
 
-    data.results.forEach(personaje => {
+        contenedor.innerHTML = "";
 
-        contenedor.innerHTML += `
-        
-        <article class="card">
 
-            <img src="${personaje.image}" alt="${personaje.name}">
 
-            <h2>${personaje.name}</h2>
+        data.results.forEach(personaje => {
 
-            <p>Estado: ${personaje.status}</p>
+            contenedor.innerHTML += `
+            
+            <article class="card">
 
-            <p>Especie: ${personaje.species}</p>
+                <img src="${personaje.image}" alt="${personaje.name}">
 
-            <p>Origen: ${personaje.origin.name}</p>
+                <h2>${personaje.name}</h2>
 
-        </article>
-        
-        `;
+                <p>Estado: ${personaje.status}</p>
+
+                <p>Especie: ${personaje.species}</p>
+
+                <p>Origen: ${personaje.origin.name}</p>
+
+            </article>
+            
+            `;
+
+        });
+
+
+
+        actualizarBotones(data);
 
     });
 
-});
+}
